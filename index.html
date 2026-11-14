@@ -405,6 +405,146 @@
       margin-top: 16px;
     }
 
+    /* Support / Giving Section */
+    .support-section {
+      margin-top: 34px;
+      background: #faf8f5;
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 24px 22px;
+    }
+
+    .support-header {
+      font-family: "Gowun Batang", Georgia, serif;
+      font-size: 1.18rem;
+      color: var(--primary-deep);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .support-card {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 15px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .support-card.wise-card {
+      grid-column: 1 / -1;
+    }
+
+    .bank-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .bank-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .bank-badge.hana {
+      background: #e6f4f1;
+      color: #008485;
+    }
+
+    .bank-badge.kb {
+      background: #fff4d6;
+      color: #8a6100;
+    }
+
+    .bank-badge.wise {
+      background: #e3f9d7;
+      color: #163300;
+    }
+
+    .support-type {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .account-num-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .account-number {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--primary-deep);
+      letter-spacing: 0.01em;
+    }
+
+    .account-holder {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .copy-btn {
+      background: #f2ece3;
+      border: 1px solid #dfd5c6;
+      color: var(--primary-deep);
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: #e6dccf;
+    }
+
+    .wise-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+      margin-top: 6px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-subtle);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .wise-detail-item {
+      color: var(--text-main);
+    }
+
+    .wise-detail-item span {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      display: block;
+    }
+
+    .wise-detail-item.full-row {
+      grid-column: 1 / -1;
+    }
+
     .signature {
       text-align: right;
       margin-top: 34px;
@@ -439,7 +579,9 @@
       }
       .vision-cards,
       .photo-grid-2,
-      .gallery-grid {
+      .gallery-grid,
+      .support-grid,
+      .wise-details {
         grid-template-columns: 1fr;
       }
       .photo-figure img,
@@ -626,6 +768,69 @@
         </div>
       </section>
 
+      <!-- SUPPORT / GIVING SECTION -->
+      <section class="support-section">
+        <h3 class="support-header">💌 선교 후원 안내 (Mission Support)</h3>
+        <div class="support-grid">
+          <div class="support-card">
+            <div class="bank-badge-row">
+              <span class="bank-badge hana">KEB 하나은행</span>
+              <span class="support-type">GMS (기부금 영수증 발급)</span>
+            </div>
+            <div class="account-num-row">
+              <span class="account-number">920-982395-569</span>
+              <button class="copy-btn" onclick="copyText('920-982395-569', this, '복사', '복사됨 ✓')">복사</button>
+            </div>
+            <div class="account-holder">예금주: 권창현/천소희</div>
+          </div>
+
+          <div class="support-card">
+            <div class="bank-badge-row">
+              <span class="bank-badge kb">KB 국민은행</span>
+              <span class="support-type">일반 후원</span>
+            </div>
+            <div class="account-num-row">
+              <span class="account-number">536802-04-069469</span>
+              <button class="copy-btn" onclick="copyText('536802-04-069469', this, '복사', '복사됨 ✓')">복사</button>
+            </div>
+            <div class="account-holder">예금주: 권창현</div>
+          </div>
+
+          <div class="support-card wise-card">
+            <div class="bank-badge-row">
+              <span class="bank-badge wise">WISE (해외 후원자)</span>
+              <span class="support-type">한국 외 지역(비한국) 후원자 안내</span>
+            </div>
+            <div class="account-num-row">
+              <span class="account-number">Account: 105275145015445</span>
+              <button class="copy-btn" onclick="copyText('105275145015445', this, '복사', '복사됨 ✓')">복사</button>
+            </div>
+            <div class="wise-details">
+              <div class="wise-detail-item">
+                <span>계좌명 (Name)</span>
+                <strong>Chang Hyun Kwon</strong>
+              </div>
+              <div class="wise-detail-item">
+                <span>계좌 종류 (Account type)</span>
+                <strong>Deposit</strong>
+              </div>
+              <div class="wise-detail-item">
+                <span>미국 은행 송금 시 — Routing (wire/ACH)</span>
+                <strong>084009519</strong>
+              </div>
+              <div class="wise-detail-item">
+                <span>미국 외 지역 송금 시 — Swift/BIC</span>
+                <strong>TRWIUS35XXX</strong>
+              </div>
+              <div class="wise-detail-item full-row">
+                <span>주소 (Address)</span>
+                Wise US Inc, 108 W 13th St, Wilmington, DE, 19801, United States
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div class="signature">
         <div class="date">2026년 11월, 일산에서</div>
         <div class="names">권창현 · 천소희 선교사 (혁진, 혁준, 혁민, 혁선) 가정 드림</div>
@@ -797,6 +1002,69 @@
         </div>
       </section>
 
+      <!-- SUPPORT / GIVING SECTION -->
+      <section class="support-section">
+        <h3 class="support-header">💌 Mission Support &amp; Giving</h3>
+        <div class="support-grid">
+          <div class="support-card wise-card">
+            <div class="bank-badge-row">
+              <span class="bank-badge wise">WISE (International / Non-Korea)</span>
+              <span class="support-type">USD &amp; International Transfers</span>
+            </div>
+            <div class="account-num-row">
+              <span class="account-number">Account No: 105275145015445</span>
+              <button class="copy-btn" onclick="copyText('105275145015445', this, 'Copy', 'Copied ✓')">Copy</button>
+            </div>
+            <div class="wise-details">
+              <div class="wise-detail-item">
+                <span>Account Name</span>
+                <strong>Chang Hyun Kwon</strong>
+              </div>
+              <div class="wise-detail-item">
+                <span>Account Type</span>
+                <strong>Deposit</strong>
+              </div>
+              <div class="wise-detail-item">
+                <span>From US Banks — Routing (wire/ACH)</span>
+                <strong>084009519</strong>
+              </div>
+              <div class="wise-detail-item">
+                <span>Outside the US — Swift/BIC</span>
+                <strong>TRWIUS35XXX</strong>
+              </div>
+              <div class="wise-detail-item full-row">
+                <span>Address</span>
+                Wise US Inc, 108 W 13th St, Wilmington, DE, 19801, United States
+              </div>
+            </div>
+          </div>
+
+          <div class="support-card">
+            <div class="bank-badge-row">
+              <span class="bank-badge hana">KEB Hana Bank (Korea)</span>
+              <span class="support-type">GMS (Tax Receipt in Korea)</span>
+            </div>
+            <div class="account-num-row">
+              <span class="account-number">920-982395-569</span>
+              <button class="copy-btn" onclick="copyText('920-982395-569', this, 'Copy', 'Copied ✓')">Copy</button>
+            </div>
+            <div class="account-holder">Holder: 권창현/천소희 (Changhyun Kwon / Sohee Chun)</div>
+          </div>
+
+          <div class="support-card">
+            <div class="bank-badge-row">
+              <span class="bank-badge kb">KB Kookmin Bank (Korea)</span>
+              <span class="support-type">General Support</span>
+            </div>
+            <div class="account-num-row">
+              <span class="account-number">536802-04-069469</span>
+              <button class="copy-btn" onclick="copyText('536802-04-069469', this, 'Copy', 'Copied ✓')">Copy</button>
+            </div>
+            <div class="account-holder">Holder: 권창현 (Changhyun Kwon)</div>
+          </div>
+        </div>
+      </section>
+
       <div class="signature">
         <div class="date">November 2026, from Ilsan, Korea</div>
         <div class="names">With love in Christ, Phillip (Changhyun) & Sohee Kwon (Hyukjin, Hyukjun, Hyukmin, Hyukseon)</div>
@@ -826,6 +1094,24 @@
 
     if (window.location.search.includes('lang=en')) {
       switchLang('en');
+    }
+
+    function copyText(text, btn, defaultLabel, copiedLabel) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = copiedLabel;
+          setTimeout(() => { btn.textContent = defaultLabel; }, 2000);
+        });
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        btn.textContent = copiedLabel;
+        setTimeout(() => { btn.textContent = defaultLabel; }, 2000);
+      }
     }
   </script>
 </body>
