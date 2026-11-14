@@ -50,16 +50,20 @@
       margin: 0 auto 18px;
       display: flex;
       justify-content: center;
+      position: sticky;
+      top: 12px;
+      z-index: 50;
     }
 
     .lang-tabs {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
       border: 1px solid var(--border-subtle);
       border-radius: 999px;
       padding: 5px;
       display: inline-flex;
       gap: 6px;
-      box-shadow: 0 4px 16px rgba(30, 58, 47, 0.06);
+      box-shadow: 0 6px 20px rgba(30, 58, 47, 0.12);
     }
 
     .tab-btn {
@@ -153,8 +157,8 @@
     }
 
     .section-block {
-      margin-bottom: 36px;
-      padding-bottom: 30px;
+      margin-bottom: 38px;
+      padding-bottom: 34px;
       border-bottom: 1px dashed var(--border-subtle);
     }
 
@@ -187,6 +191,91 @@
       font-size: 1rem;
       color: var(--text-main);
       word-break: keep-all;
+    }
+
+    /* Photo Grids & Figures */
+    .photo-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 20px 0 8px;
+    }
+
+    .photo-figure {
+      background: #faf8f5;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .photo-figure img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-figure.tall img {
+      height: 340px;
+    }
+
+    .photo-figure.full img {
+      height: auto;
+      max-height: 440px;
+    }
+
+    .photo-caption {
+      padding: 11px 14px;
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      text-align: center;
+      background: #fcfaf7;
+      border-top: 1px solid var(--border-subtle);
+      word-break: keep-all;
+    }
+
+    /* HOPE International School Feature Card */
+    .hope-school-card {
+      margin: 20px 0 18px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #d4e0d8;
+      background: #f8faf8;
+      box-shadow: 0 4px 16px rgba(30, 58, 47, 0.06);
+    }
+
+    .hope-logo-bar {
+      background: linear-gradient(135deg, #1b362b 0%, #2a4d3e 100%);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hope-logo-bar img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .hope-logo-text {
+      color: #f3dfb9;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .hope-school-card .school-photo {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      display: block;
     }
 
     .interview-steps {
@@ -302,9 +391,23 @@
       color: #44413d;
     }
 
+    /* Family & Bonus Gallery */
+    .bonus-gallery {
+      margin-top: 34px;
+      padding-top: 30px;
+      border-top: 1px dashed var(--border-subtle);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
     .signature {
       text-align: right;
-      margin-top: 30px;
+      margin-top: 34px;
       font-family: "Gowun Batang", Georgia, serif;
       color: var(--primary-deep);
     }
@@ -332,10 +435,17 @@
         font-size: 1.52rem;
       }
       .content-body {
-        padding: 26px 20px 34px;
+        padding: 26px 18px 34px;
       }
-      .vision-cards {
+      .vision-cards,
+      .photo-grid-2,
+      .gallery-grid {
         grid-template-columns: 1fr;
+      }
+      .photo-figure img,
+      .photo-figure.tall img {
+        height: auto;
+        max-height: 380px;
       }
       .prayer-section {
         padding: 22px 18px;
@@ -371,6 +481,17 @@
         <h2 class="section-title">바탐방에서의 섬김과 동역의 은혜</h2>
         <p>지난 9월에는 바탐방 지역 선교사님들을 대상으로 <strong>‘사역을 위한 AI 특강’</strong>을 진행했습니다. 강의에 그치지 않고 선교사님들께서 현장에서 직접 연습하고 실제 사역에 활용하실 수 있도록 <strong>실습 핸드북</strong>을 제작해 함께 나누었는데, 사역의 도구를 나누며 서로에게 큰 격려가 되는 시간이었습니다.</p>
         <p>이어 프놈펜에서 열린 <strong>GMS 해피캄(Happy Cam) 지부 모임</strong>에 참석했습니다. 선교지에서 함께 땀 흘리는 동역자들과 한자리에 모여 예배와 말씀 앞에 우리 자신을 다시 점검하고, 서로를 위로하며 새 힘을 얻는 귀한 은혜를 누렸습니다.</p>
+
+        <div class="photo-grid-2">
+          <figure class="photo-figure">
+            <img src="photos/01_ai_seminar.jpg" alt="바탐방 선교사 AI 특강" loading="lazy" />
+            <figcaption class="photo-caption">바탐방 지역 선교사님들을 위한 ‘사역을 위한 AI 활용’ 특강</figcaption>
+          </figure>
+          <figure class="photo-figure">
+            <img src="photos/02_happycam_gathering.jpg" alt="프놈펜 GMS 해피캄 지부 모임" loading="lazy" />
+            <figcaption class="photo-caption">프놈펜 GMS 해피캄(Happy Cam) 지부 모임 및 교제</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="section-block">
@@ -386,6 +507,15 @@
           <li><span class="step-tag">4차 면접</span> 학교 총괄 대표 선생님과의 온라인 면접</li>
         </ul>
         <p><strong>HOPE 국제학교</strong>는 20여 년 전 호주 선교사님들이 선교사 자녀들을 위해 설립한 학교로, 교사와 행정 스태프 전원 모두가 선교사 신분으로 헌신하고 있는 믿음의 공동체입니다. 감사하게도 긴 면접 과정을 거쳐 최종 합격 통보를 받았고, 행정 담당 선교사님과 교장 선교사님, 기존 교육 선교사님들 모두와 온전히 일치된 마음으로 기쁘게 MK와 TCK 아이들을 섬기게 되었습니다.</p>
+
+        <div class="hope-school-card">
+          <div class="hope-logo-bar">
+            <img src="https://www.hope.edu.kh/wp-content/uploads/2019/07/HOPE-NEW-LOGO-PNG-white-e1563955282842.png" alt="HOPE International School Logo" loading="lazy" />
+            <span class="hope-logo-text">HOPE International School · Phnom Penh, Cambodia</span>
+          </div>
+          <img class="school-photo" src="https://www.hope.edu.kh/wp-content/uploads/2017/02/Hope-teachers-web-Size1998-e1487125731542.jpg" alt="HOPE International School Community" loading="lazy" />
+          <div class="photo-caption">교목(Chaplain)으로 새롭게 섬기게 될 프놈펜 HOPE 국제학교 공동체</div>
+        </div>
       </section>
 
       <section class="section-block">
@@ -406,6 +536,17 @@
           </div>
         </div>
         <p>막히게 하신 길도, 돌아가게 하신 걸음도 모두 하나도 버릴 것 없는 하나님의 선하신 계획이었습니다.</p>
+
+        <div class="photo-grid-2">
+          <figure class="photo-figure">
+            <img src="photos/04-1_battambang_ministry.jpg" alt="바탐방 사역과 동역자들" loading="lazy" />
+            <figcaption class="photo-caption">바탐방에서 동역자 및 다음세대 아이들과 함께한 소중한 시간</figcaption>
+          </figure>
+          <figure class="photo-figure">
+            <img src="photos/04-2_battambang_ministry.jpg" alt="바탐방 EDM 센터 예배" loading="lazy" />
+            <figcaption class="photo-caption">바탐방 EDM 센터 청년·청소년들의 찬양과 예배</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="section-block">
@@ -427,6 +568,17 @@
           </li>
         </ul>
         <p>최근에는 오랜만에 마주한 한국의 추위에 <strong>네 아이(혁진, 혁준, 혁민, 혁선)가 단체로 감기</strong>에 걸려, 현재 머물고 있는 <strong>일산 저희 부모님 댁에서</strong> 거의 2주째 외출을 자제하며 자가격리 중에 있습니다. 감사하게도 지금은 아이들 모두 많이 회복되었습니다. 남은 3주간의 한국 일정을 건강하게 잘 마무리하고 돌아갈 수 있도록 기도를 부탁드립니다.</p>
+
+        <div class="photo-grid-2">
+          <figure class="photo-figure tall">
+            <img src="photos/05_kids_treatment.jpg" alt="상악 교정 장치를 착용한 혁민이" loading="lazy" />
+            <figcaption class="photo-caption">2차 수술을 앞두고 상악 교정 장치를 착용한 채 의젓하게 공부하는 셋째 혁민이</figcaption>
+          </figure>
+          <figure class="photo-figure tall">
+            <img src="photos/06_four_brothers.jpg" alt="네 형제 혁진, 혁준, 혁민, 혁선" loading="lazy" />
+            <figcaption class="photo-caption">함께 한국에 나온 든든한 네 형제 — 혁진, 혁준, 혁민, 혁선</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="section-block" style="margin-bottom:10px;">
@@ -449,6 +601,30 @@
           <p>처음으로 맡게 되는 ‘교목(Chaplain)’이라는 직책과 사역을 잘 감당할 수 있도록 하늘의 지혜와 능력을 부어주시기를, 또한 MK/TCK 아이들을 말씀과 사랑으로 세워갈 뿐 아니라 프놈펜으로 올라온 현지 청년(EDM 센터)들의 신앙을 잇는 귀한 가교로 쓰임 받도록 기도해 주세요.</p>
         </div>
       </div>
+
+      <!-- FAMILY & BONUS PHOTOS -->
+      <section class="bonus-gallery">
+        <span class="section-num">Family & Bonus Moments</span>
+        <h3 class="section-title" style="margin-bottom:8px;">📸 가족과 네 형제의 한국 일상</h3>
+        <div class="gallery-grid">
+          <figure class="photo-figure tall">
+            <img src="photos/07_family_photo.jpg" alt="권창현·천소희 선교사 가족사진" loading="lazy" />
+            <figcaption class="photo-caption">사랑하는 우리 가족 (권창현·천소희 선교사와 혁진, 혁준, 혁민, 혁선)</figcaption>
+          </figure>
+          <figure class="photo-figure tall">
+            <img src="photos/08_bonus_1.jpg" alt="화면 속 형들을 바라보는 막내" loading="lazy" />
+            <figcaption class="photo-caption">핑크빛 TV 화면 속 형들을 바라보는 귀여운 일상</figcaption>
+          </figure>
+          <figure class="photo-figure tall">
+            <img src="photos/08_bonus_2.jpg" alt="가을 햇살 아래 아이들" loading="lazy" />
+            <figcaption class="photo-caption">따스한 한국 가을 햇살 아래 강아지풀을 살펴보는 형제들</figcaption>
+          </figure>
+          <figure class="photo-figure tall">
+            <img src="photos/08_bonus_3.jpg" alt="신나게 점프하는 아이들" loading="lazy" />
+            <figcaption class="photo-caption">바위 위에서 힘차게 뛰어오르는 에너제틱 형제들!</figcaption>
+          </figure>
+        </div>
+      </section>
 
       <div class="signature">
         <div class="date">2026년 11월, 일산에서</div>
@@ -476,6 +652,17 @@
         <h2 class="section-title">Ministry & Fellowship in Battambang</h2>
         <p>In September, I had the privilege of leading a <strong>Special AI Workshop for Missionaries</strong> serving in the Battambang region. Rather than offering a one-time lecture, I created a practical <strong>hands-on handbook</strong> so that fellow missionaries could practice and apply these tools directly to their ministries. It was a joyful time of equipping and encouraging one another.</p>
         <p>We also gathered in Phnom Penh for the <strong>GMS Happy Cam Branch Fellowship</strong>. Coming together with fellow coworkers from across the field to worship, reflect on God’s Word, and comfort and encourage one another brought deep spiritual refreshment to our souls.</p>
+
+        <div class="photo-grid-2">
+          <figure class="photo-figure">
+            <img src="photos/01_ai_seminar.jpg" alt="Special AI Workshop for Missionaries" loading="lazy" />
+            <figcaption class="photo-caption">Leading the “AI for Ministry” Workshop for Missionaries in Battambang</figcaption>
+          </figure>
+          <figure class="photo-figure">
+            <img src="photos/02_happycam_gathering.jpg" alt="GMS Happy Cam Branch Fellowship" loading="lazy" />
+            <figcaption class="photo-caption">Fellowship with Fellow Missionaries at the GMS Happy Cam Gathering in Phnom Penh</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="section-block">
@@ -491,6 +678,15 @@
           <li><span class="step-tag">4th Interview</span> Online interview with the School Director</li>
         </ul>
         <p>Founded over 20 years ago by Australian missionaries specifically to serve missionary kids, <strong>HOPE International School</strong> is a unique faith community where every single teacher and administrative staff member serves as a missionary. By God’s grace, I was offered the position! Through our conversations with the administrative missionary, the Principal, and the existing missionary teachers, God confirmed a deep unity of heart and spirit as we step into serving these MKs and TCKs together.</p>
+
+        <div class="hope-school-card">
+          <div class="hope-logo-bar">
+            <img src="https://www.hope.edu.kh/wp-content/uploads/2019/07/HOPE-NEW-LOGO-PNG-white-e1563955282842.png" alt="HOPE International School Logo" loading="lazy" />
+            <span class="hope-logo-text">HOPE International School · Phnom Penh, Cambodia</span>
+          </div>
+          <img class="school-photo" src="https://www.hope.edu.kh/wp-content/uploads/2017/02/Hope-teachers-web-Size1998-e1487125731542.jpg" alt="HOPE International School Community" loading="lazy" />
+          <div class="photo-caption">HOPE International School in Phnom Penh, where I will be serving as School Chaplain</div>
+        </div>
       </section>
 
       <section class="section-block">
@@ -511,6 +707,17 @@
           </div>
         </div>
         <p>Every closed door and every detour was part of God’s good and perfect preparation.</p>
+
+        <div class="photo-grid-2">
+          <figure class="photo-figure">
+            <img src="photos/04-1_battambang_ministry.jpg" alt="Fellowship in Battambang" loading="lazy" />
+            <figcaption class="photo-caption">Precious Moments with Next-Generation Youth & Coworkers in Battambang</figcaption>
+          </figure>
+          <figure class="photo-figure">
+            <img src="photos/04-2_battambang_ministry.jpg" alt="EDM Center Worship in Battambang" loading="lazy" />
+            <figcaption class="photo-caption">Cambodian Youth Worshiping Together at the EDM Center in Battambang</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="section-block">
@@ -532,6 +739,17 @@
           </li>
         </ul>
         <p>Recently, the sudden cold weather caught <strong>all four of our boys (Hyukjin, Hyukjun, Hyukmin, and Hyukseon)</strong> off guard with a round of colds. For the past two weeks, we have been mostly staying indoors in self-quarantine at <strong>our parents’ home in Ilsan</strong> where I am writing this letter. Thankfully, the boys are doing much better now! We have about three weeks left in Korea before returning to Cambodia.</p>
+
+        <div class="photo-grid-2">
+          <figure class="photo-figure tall">
+            <img src="photos/05_kids_treatment.jpg" alt="Hyukmin wearing orthodontic headgear" loading="lazy" />
+            <figcaption class="photo-caption">Our third son, Hyukmin, faithfully studying while wearing his pre-surgical upper jaw orthodontic headgear</figcaption>
+          </figure>
+          <figure class="photo-figure tall">
+            <img src="photos/06_four_brothers.jpg" alt="Four brothers together: Hyukjin, Hyukjun, Hyukmin, and Hyukseon" loading="lazy" />
+            <figcaption class="photo-caption">Our Four Boys Together in Korea: Hyukjin, Hyukjun, Hyukmin, and Hyukseon</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="section-block" style="margin-bottom:10px;">
@@ -554,6 +772,30 @@
           <p>As I step into the role of School Chaplain for the very first time, pray that God grants heavenly wisdom, spiritual discernment, and strength to shepherd the MK/TCK students well—and that our home and ministry in Phnom Penh will also become a vital bridge for local Cambodian youth moving to the city.</p>
         </div>
       </div>
+
+      <!-- FAMILY & BONUS PHOTOS -->
+      <section class="bonus-gallery">
+        <span class="section-num">Family & Bonus Moments</span>
+        <h3 class="section-title" style="margin-bottom:8px;">📸 Family & Everyday Moments in Korea</h3>
+        <div class="gallery-grid">
+          <figure class="photo-figure tall">
+            <img src="photos/07_family_photo.jpg" alt="Kwon Family Photo" loading="lazy" />
+            <figcaption class="photo-caption">Our Family Together (Phillip, Sohee, Hyukjin, Hyukjun, Hyukmin, and Hyukseon)</figcaption>
+          </figure>
+          <figure class="photo-figure tall">
+            <img src="photos/08_bonus_1.jpg" alt="Looking at his big brothers on screen" loading="lazy" />
+            <figcaption class="photo-caption">Spotting His Big Brothers on the Retro TV Screen</figcaption>
+          </figure>
+          <figure class="photo-figure tall">
+            <img src="photos/08_bonus_2.jpg" alt="Brothers in autumn sunlight" loading="lazy" />
+            <figcaption class="photo-caption">Exploring Foxtails in the Warm Korean Autumn Sunlight</figcaption>
+          </figure>
+          <figure class="photo-figure tall">
+            <img src="photos/08_bonus_3.jpg" alt="Boys jumping with joy" loading="lazy" />
+            <figcaption class="photo-caption">Full of Energy — Jumping for Joy on an Autumn Day!</figcaption>
+          </figure>
+        </div>
+      </section>
 
       <div class="signature">
         <div class="date">November 2026, from Ilsan, Korea</div>
@@ -582,7 +824,6 @@
       }
     }
 
-    // Auto-select English if URL has ?lang=en
     if (window.location.search.includes('lang=en')) {
       switchLang('en');
     }
