@@ -84,6 +84,37 @@
       box-shadow: 0 2px 8px rgba(30, 58, 47, 0.2);
     }
 
+    .lang-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--border-subtle);
+      align-self: center;
+      margin: 0 2px;
+    }
+
+    .pdf-btn {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(198, 156, 83, 0.45);
+      background: #faf6ee;
+      color: var(--primary-deep);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .pdf-btn:hover {
+      background: var(--primary-deep);
+      color: #ffffff;
+      border-color: var(--primary-deep);
+    }
+
     .newsletter-card {
       max-width: 760px;
       margin: 0 auto;
@@ -592,6 +623,42 @@
       .prayer-section {
         padding: 22px 18px;
       }
+      .tab-btn {
+        padding: 8px 14px;
+        font-size: 0.86rem;
+      }
+      .pdf-btn {
+        padding: 8px 12px;
+        font-size: 0.84rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .lang-bar,
+      .copy-btn {
+        display: none !important;
+      }
+      .newsletter-card {
+        max-width: 100%;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+      }
+      .photo-figure,
+      .hope-school-card,
+      .vision-card,
+      .kids-item,
+      .prayer-section,
+      .support-card,
+      .wise-card {
+        break-inside: avoid;
+      }
     }
   </style>
 </head>
@@ -601,6 +668,8 @@
     <div class="lang-tabs">
       <button class="tab-btn active" id="tab-kr" onclick="switchLang('kr')">🇰🇷 한국어</button>
       <button class="tab-btn" id="tab-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <span class="lang-divider" aria-hidden="true"></span>
+      <a class="pdf-btn" id="pdf-download-btn" href="mission-letter-2026-q4-kr.pdf" download="2026_4분기_선교편지_권창현천소희.pdf">📄 PDF 저장</a>
     </div>
   </nav>
 
@@ -1078,17 +1147,28 @@
       const enView = document.getElementById('view-en');
       const tabKr = document.getElementById('tab-kr');
       const tabEn = document.getElementById('tab-en');
+      const pdfBtn = document.getElementById('pdf-download-btn');
 
       if (lang === 'kr') {
         krView.classList.remove('hidden');
         enView.classList.add('hidden');
         tabKr.classList.add('active');
         tabEn.classList.remove('active');
+        if (pdfBtn) {
+          pdfBtn.href = 'mission-letter-2026-q4-kr.pdf';
+          pdfBtn.setAttribute('download', '2026_4분기_선교편지_권창현천소희.pdf');
+          pdfBtn.textContent = '📄 PDF 저장';
+        }
       } else {
         krView.classList.add('hidden');
         enView.classList.remove('hidden');
         tabKr.classList.remove('active');
         tabEn.classList.add('active');
+        if (pdfBtn) {
+          pdfBtn.href = 'mission-letter-2026-q4-en.pdf';
+          pdfBtn.setAttribute('download', '2026_Q4_Mission_Letter_Kwon_Family.pdf');
+          pdfBtn.textContent = '📄 PDF';
+        }
       }
     }
 
